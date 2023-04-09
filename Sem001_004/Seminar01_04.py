@@ -61,7 +61,7 @@ if FlagProgTermination1:
             if m > 0:
                 break
 #    m = int(input("Введите размеры шоколадки по горизонтали (m): "))
-    if FlagProgTermination1 and FlagProgTermination2:
+    if FlagProgTermination2:
 #
 # Ввод и проверка третьего числа
 #
@@ -76,15 +76,17 @@ if FlagProgTermination1:
         # цикл закончится.
             except EOFError:
                 print("EOFError! Выходим из цикла ввода.")
-                FlagProgTermination2 = False
-                reak
+                FlagProgTermination3 = False
+                break
             else: 
                 if k > 0:
                     break
 #
 #  проверка выполнипмости условий разламываня плитки
 #
-        if ((k%n == 0) or (k%m == 0)) and (k<n*m): 
-            print('yes') 
-        else:
-            print('no')
+        if FlagProgTermination3:
+#            
+            if ((k%n == 0) or (k%m == 0)) and (k<n*m): 
+                print('yes') 
+            else:
+                print('no')
