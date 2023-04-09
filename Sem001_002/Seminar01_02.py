@@ -20,7 +20,7 @@
 upper = int(input("Введите верхнюю границу диапазона:"))
 n = 6
 for i in range(6, upper + 1,6):
-    Pete = int(i/6)
+    Pete = int(i//6)
     Serg = Pete
     Kate = 2*(Serg+Pete)
     print (i,"->", Pete, Kate, Serg)
