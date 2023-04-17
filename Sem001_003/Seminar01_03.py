@@ -9,12 +9,7 @@
 # 385916 -> yes
 # 123456 -> no
 #
-# while True:
-# from pynput import keyboard
-
-# import keyboard - пока не осилил...
-
-# keyboard.add_hotkey("ctrl+alt+p", lambda: print("CTRL+ALT+P Pressed!"))
+#  Принудительный выход из программы на этапе ввода зхначений - Ctrl+Z , затем Enter
 #
 #
 FlagProgTermination = True  # флаг принудительного завершения программы по Ctrl+Z и Enter
