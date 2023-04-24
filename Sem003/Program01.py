@@ -49,6 +49,7 @@ while Flag:
                         # Цикл будет повторяться до правильного ввода
                         print(
                             "Error! Введенный элемент массива - НЕ число, попробуйте снова.")
+                        narray = list()
                         Flagin = True
                         Flag = True
                         break
@@ -63,6 +64,7 @@ while Flag:
                         Flagin = False
             else:
                 print("Ошибка при вводе элементов массива")
+                narray = list()
             Flagin = False
             break
 #
