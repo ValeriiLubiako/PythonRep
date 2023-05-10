@@ -34,6 +34,7 @@ if len(arrin) == 1:
 else:
     arrvwls = ["а", "е", "ё", "и", "й", "о", "у", "ы",
                "э", "ю", "я", "a", "e", "i", "o", "u", "y"]  # массив гласных букв для русского и английского алфавитов
+#   arrvwls = "аеёийоуыэюяaeiouy"   можно вместо списка символов использоватьсимвольную строку
     vowelsinlines = list()
     for x in arrin:
         vowelsinlines.append(len([y for y in x if y.lower() in arrvwls]))
