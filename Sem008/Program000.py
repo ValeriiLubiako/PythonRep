@@ -4,6 +4,9 @@
 # https://ru.hexlet.io/my?confirmation_token=RTdJwztyppjCuztfUgLhIA
 # https://www.online-python.com/
 # https://www.freecodecamp.org/news/python-switch-statement-switch-case-example/
+# https://data-flair.training/blogs/top-python-interview-questions-answer/
+# https://pynative.com/python/file-handling/
+#
 #
 #  file.close() - Закрывает открытый файл, освобождая ресурсы системы
 #                   Любая операция, которая требует, чтобы файл был открыт, вызовет исключение ValueError после того, как файл был закрыт.
