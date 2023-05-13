@@ -2,14 +2,14 @@
 
 def salute():
     print("Меню работы с записной книжкой.\n" +
-    "Введите соответствующую выбранной операции цифру из списка:\n" +
-    "- найти контакт/find contact: 1;\n" +
-    "- добавить контакт/add contact: 2;\n" +
-    "- просмотреть список контактов/list contacts: 3;\n" +
-    "- внести изменения в контакт/upate contact: 4;\n" +
-    "- удалить контакт/delete contact: 5;\n" +
-    "- удалить ВЕСЬ список контактов/delete CONTACT LIST: 6;\n" +
-    "- выйти из меню/escape: 7;\n") 
+          "Введите соответствующую выбранной операции цифру из списка:\n" +
+          "- найти контакт/find contact: 1;\n" +
+          "- добавить контакт/add contact: 2;\n" +
+          "- просмотреть список контактов/list contacts: 3;\n" +
+          "- внести изменения в контакт/upate contact: 4;\n" +
+          "- удалить контакт/delete contact: 5;\n" +
+          "- удалить ВЕСЬ список контактов/delete CONTACT LIST: 6;\n" +
+          "- выйти из меню/escape: 7;\n")
     Flag = True
     while Flag:
         try:
@@ -22,7 +22,7 @@ def salute():
 
 # Если полученный ввод не число, будет вызвано исключение
         except ValueError:
-        # Цикл будет повторяться до правильного ввода
+            # Цикл будет повторяться до правильного ввода
             print("Error! Это не число, попробуйте снова.")
 
         # При успешном преобразовании в целое число,
@@ -36,22 +36,24 @@ def salute():
                 print("Error! Допустимые значения от 1 до 7, попробуйте снова.")
             else:
                 return n
-            
+
 # End of salute
 
 #   print(salute())
 
 
 def input_contact():
-    return [input("Name: ") + ";", input("FirstName: ") + ";",
-    input("Patronimic: ") + ";", input("PhoneNo: ") + "\n"]
+    return input("Name: ") + ";" + input("FirstName: ") + ";" + input("Patronimic: ") + ";" + input("PhoneNo: ")
 #   return [input('Введите имя: ')+" ", input('Введите фамилию: ')+" ", input('Введите отчество: ')+" ", input('Введите телефон: ') + "\n"]
 
 
-def get_del_contact():
+def inp_seek_contact():
+    return input('Ищем по фамилии (на вхождение введенной строки): ')
+
+
+def inp_delete_contact():
     return input('Введите фамилию удаляемого контакта: ')
 
 
-def get_change_contact():
+def inp_update_contact():
     return input('Введите фамилию изменяемого контакта: ')
-

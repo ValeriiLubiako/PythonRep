@@ -6,6 +6,8 @@
 # https://www.freecodecamp.org/news/python-switch-statement-switch-case-example/
 # https://data-flair.training/blogs/top-python-interview-questions-answer/
 # https://pynative.com/python/file-handling/
+# https://www.geeksforgeeks.org/using-the-cat-command-in-python/
+# https://pynative.com/python-count-number-of-lines-in-file/
 #
 #
 #  file.close() - Закрывает открытый файл, освобождая ресурсы системы
