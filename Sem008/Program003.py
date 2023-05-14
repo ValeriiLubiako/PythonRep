@@ -4,6 +4,11 @@
 #
 #  main.py
 
+# содержит функции main.prog, с помощью которой реализуются основное меню,
+# операций по обработке данных файла записной книжки.
+# Файл должен быть расположен в текущем директории и называрься file.txt
+# Программа запускается с этого файла.
+
 from Program001 import *
 from Program002 import *
 
@@ -26,6 +31,8 @@ def main_prog():
             case 6:
                 print(
                     "ВНИМАИЕ! Будет удален ВЕСЬ СПИСОК КОНТАКТОВ/Attention! You will delete ALL YOUR CONTACTS!!!!")
+                input(
+                    "Данный режим пока не реализован.Нажмите Enter для продолжения работы...")
             case _:
                 print("")
         print(a)
@@ -40,10 +47,12 @@ def main_prog():
             print_list()
 
         elif a == 4:
-            update_contact(interface.get_change_contact())
+            update_contact(inp_update_contact())
 
         elif a == 5:
             delete_contact(inp_delete_contact())
+        elif a == 6:
+            pass
         else:
             flag = False
 

@@ -1,4 +1,5 @@
-# interface
+# Program002.py
+# Содержит функции, с помощью которых реализуются операции ввода-вывода
 
 def salute():
     print("\n>>>>>>>------>>>>>>>>>>------>>>>>>>>>\n" +
@@ -54,6 +55,18 @@ def input_contact():
 #   return [input('Введите имя: ')+" ", input('Введите фамилию: ')+" ", input('Введите отчество: ')+" ", input('Введите телефон: ') + "\n"]
 
 
+def inp_newdata_contact(name, line_number):
+    #
+    print("Введите новые значения имени, отчества или номера телефона")
+    print(">>>>-------->>>>>------->>>>>")
+    try:
+        return name + ";" + input("FirstName: ") + ";" + input("Patronimic: ") + ";" + input("PhoneNo: ") + ";" + str(line_number)
+    except EOFError:
+        pass
+    else:
+        pass
+
+
 def inp_seek_contact():
     try:
         name = input('Ищем по фамилии (на вхождение введенной строки): ')
@@ -77,4 +90,11 @@ def inp_delete_contact():
 
 
 def inp_update_contact():
-    return input('Введите фамилию изменяемого контакта: ')
+    try:
+        name = input('Введите фамилию изменяемого контакта: ')
+    except EOFError:
+        name = ""  # чтобы присвоить тип name, 'NoneType' has no len()
+     #       input("EOFError! Для продолжения нажмите клавишу Enter...")
+    else:
+        pass
+    return name
