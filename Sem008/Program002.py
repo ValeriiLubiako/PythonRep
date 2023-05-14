@@ -1,7 +1,8 @@
 # interface
 
 def salute():
-    print("Меню работы с записной книжкой.\n" +
+    print("\n>>>>>>>------>>>>>>>>>>------>>>>>>>>>\n" +
+          "Меню работы с записной книжкой.\n" +
           "Введите соответствующую выбранной операции цифру из списка:\n" +
           "- найти контакт/find contact: 1;\n" +
           "- добавить контакт/add contact: 2;\n" +
@@ -28,7 +29,7 @@ def salute():
         # При успешном преобразовании в целое число,
         # цикл закончится.
         except EOFError:
-            print("EOFError! Выходим из цикла ввода.")
+            print("EOFError! Выходим из меню...")
             FlagProgTermination = False
             break
         else:
@@ -45,8 +46,8 @@ def salute():
 def input_contact():
     name = ""
     name = input("Name: ")
-    if len(name) == 0:
-        input("Поле Фамилия является обязательным для ввода!!!!")
+    if len(name) < 2:
+        input("Поле Фамилия является обязательным для ввода а длина значения не может быть меньше 2 символов!!!!")
         return name
     else:
         return name + ";" + input("FirstName: ") + ";" + input("Patronimic: ") + ";" + input("PhoneNo: ")
@@ -54,11 +55,25 @@ def input_contact():
 
 
 def inp_seek_contact():
-    return input('Ищем по фамилии (на вхождение введенной строки): ')
+    try:
+        name = input('Ищем по фамилии (на вхождение введенной строки): ')
+    except EOFError:
+        name = ""  # чтобы присвоить тип name, 'NoneType' has no len()
+     #       input("EOFError! Для продолжения нажмите клавишу Enter...")
+    else:
+        pass
+    return name
 
 
 def inp_delete_contact():
-    return input('Введите фамилию удаляемого контакта: ')
+    try:
+        name = input('Введите фамилию удаляемого контакта: ')
+    except EOFError:
+        name = ""  # чтобы присвоить тип name, 'NoneType' has no len()
+     #       input("EOFError! Для продолжения нажмите клавишу Enter...")
+    else:
+        pass
+    return name
 
 
 def inp_update_contact():

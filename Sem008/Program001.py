@@ -9,7 +9,7 @@ def add_contact(contact):
     #  Определим кол-во строк в файле для назначения ID вновь вводимой строке (ID = count + 1)
     #
     # open file in read mode
-    if len(contact) == 0:
+    if len(contact) < 2:
         pass
     else:
         with open('file.txt', 'r', encoding='utf-8') as fp:
@@ -24,19 +24,25 @@ def add_contact(contact):
 
 
 def seek_contact(name):
-    with open('file.txt', 'r', encoding='utf-8') as contact_list:
-        k = 0
-        for x in contact_list:
-            y = x.split(";")
-            if name.lower() in y[0].lower():
-                k += 1
-                print(y[0], y[4],  "->", x)
-    contact_list.close()
-    if k == 0:
-        print("Ничего не найдено...")
+    #  функция выполняется только в том случае, если длина поисковой строуи содержит более одного символа
+    if len(name) > 1:
+        with open('file.txt', 'r', encoding='utf-8') as contact_list:
+            k = 0
+            for x in contact_list:
+                y = x.split(";")
+                if name.lower() in y[0].lower():
+                    k += 1
+                    print(y[0], y[4],  "->", x)
+        contact_list.close()
+        if k == 0:
+            print("Ничего не найдено...")
+        else:
+            pass
+        input("для продолжения нажмите клавишу Enter...")
     else:
-        pass
-    input("для продолжения нажмите клавишу Enter....")
+        input("Поисковая строка не определена. Для продолжения нажмите клавишу Enter...")
+#
+#
 
 
 def print_list():
@@ -51,42 +57,58 @@ def print_list():
 
 
 def delete_contact(name):
+    #  функция выполняется только в том случае, если длина поисковой строуи содержит более одного символа
+    if len(name) > 1:
+        with open('file.txt', 'r', encoding='utf-8') as contact_list:
+            k = 0
+            id_list = []
+            for x in contact_list:
+                y = x.split(";")
+                if name.lower() in y[0].lower():
+                    k += 1
+                    print(y[0], y[4],  "->", x)
+                    # массив порядковых номеров записей в файде, отобранных для удаления
+                    id_list.append(int(y[4]))
+        contact_list.close()
+        #
+        # далее обработка удаления найденных записей
+        #
+        if k == 0:
+            input("Ничего не найдено...Для продолжения нажмите клавишу Enter....")
+        elif k == 1:   # вызов функции удаления
+            inp = input(
+                "Для подтверждения удаления нажмите клавишу Y + Enter....")
+            if inp == "Y" or inp == "y" or inp == "Н" or inp == "н":
+                delete_line("file.txt", id_list[0], True)
+                input("Запись удалена. Для продолжения нажмите клавишу Enter....")
+            else:
+                pass
+        else:
+            try:
+                id_delete = int(
+                    input("Укажите номер записи, которую нужно удалить " + "".join(str(id_list) + ": ")))
+            except ValueError:  # Обработка если введена не цифра
+                id_delete = 0
+                print("Error! Это не число, повторите ввод через основное меню.")
+            except EOFError:
+                id_delete = 0
+                print("EOFError! Выходим в основное меню...")
+            else:
+                if id_delete in id_list:
 
-    with open('file.txt', 'r', encoding='utf-8') as contact_list:
-        k = 0
-        id_list = []
-        for x in contact_list:
-            y = x.split(";")
-            if name.lower() in y[0].lower():
-                k += 1
-                print(y[0], y[4],  "->", x)
-                # массив порядковых номеров записей в файде, отобранных для удаления
-                id_list.append(int(y[4]))
-    contact_list.close()
-    #
-    # далее обработка удаления найденных записей
-    #
-    if k == 0:
-        input("Ничего не найдено...Для продолжения нажмите клавишу Enter....")
-    elif k == 1:   # вызов функции удаления
-        inp = input("Для подтверждения удаления нажмите клавишу Y + Enter....")
-        if inp == "Y" or inp == "y":
-            delete_line("file.txt", id_list[0], True)
-            input("Запись удалена. Для продолжения нажмите клавишу Enter....")
-        else:
-            pass
-    else:
-        try:
-            id_delete = int(
-                input("Укажите номер записи, которую нужно удалить " + "".join(str(id_list) + ": ")))
-        except ValueError:  # Обработка если введена не цифра
-            id_delete = 0
-            print("Error! Это не число, повторите ввод через основное меню.")
-        if id_delete in id_list:
-            delete_line("file.txt", id_delete, True)
-            input("Запись удалена. Для продолжения нажмите клавишу Enter....")
-        else:
-            input("Ощибка в номере записи. Для продолжения нажмите клавишу Enter....")
+                    inp = input(
+                        "Для подтверждения удаления нажмите клавишу Y + Enter....")
+
+#                else:
+                    if inp == "Y" or inp == "y" or inp == "Н" or inp == "н":
+                        delete_line("file.txt", id_delete, True)
+                        input(
+                            "Запись удалена. Для продолжения нажмите клавишу Enter....")
+                    else:
+                        pass
+                else:
+                    input(
+                        "Ощибка в номере записи. Для продолжения нажмите клавишу Enter....")
 
     # contact_list = open('file.txt', 'r', encoding='utf-8')
     # cash_list = []
