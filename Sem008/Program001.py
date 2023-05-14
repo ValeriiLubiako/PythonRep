@@ -9,15 +9,18 @@ def add_contact(contact):
     #  Определим кол-во строк в файле для назначения ID вновь вводимой строке (ID = count + 1)
     #
     # open file in read mode
-    with open('file.txt', 'r', encoding='utf-8') as fp:
-        for count, line in enumerate(fp):
-            pass
-        id_next = count + 1 + 1
-    #
-    with open('file.txt', 'a', encoding='utf-8') as data:
-        data.write(contact + ";" + str(id_next) + "\n")
-    # data.write('\n')
-    data.close()
+    if len(contact) == 0:
+        pass
+    else:
+        with open('file.txt', 'r', encoding='utf-8') as fp:
+            for count, line in enumerate(fp):
+                pass
+            id_next = count + 1 + 1
+#
+        with open('file.txt', 'a', encoding='utf-8') as data:
+            data.write(contact + ";" + str(id_next) + "\n")
+# data.write('\n')
+        data.close()
 
 
 def seek_contact(name):
@@ -73,8 +76,12 @@ def delete_contact(name):
         else:
             pass
     else:
-        id_delete = int(
-            input("Укажите номер записи, которую нужно удалить " + "".join(str(id_list))))
+        try:
+            id_delete = int(
+                input("Укажите номер записи, которую нужно удалить " + "".join(str(id_list) + ": ")))
+        except ValueError:  # Обработка если введена не цифра
+            id_delete = 0
+            print("Error! Это не число, повторите ввод через основное меню.")
         if id_delete in id_list:
             delete_line("file.txt", id_delete, True)
             input("Запись удалена. Для продолжения нажмите клавишу Enter....")

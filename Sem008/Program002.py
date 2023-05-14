@@ -43,7 +43,13 @@ def salute():
 
 
 def input_contact():
-    return input("Name: ") + ";" + input("FirstName: ") + ";" + input("Patronimic: ") + ";" + input("PhoneNo: ")
+    name = ""
+    name = input("Name: ")
+    if len(name) == 0:
+        input("Поле Фамилия является обязательным для ввода!!!!")
+        return name
+    else:
+        return name + ";" + input("FirstName: ") + ";" + input("Patronimic: ") + ";" + input("PhoneNo: ")
 #   return [input('Введите имя: ')+" ", input('Введите фамилию: ')+" ", input('Введите отчество: ')+" ", input('Введите телефон: ') + "\n"]
 
 
