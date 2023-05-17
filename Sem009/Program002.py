@@ -1,6 +1,9 @@
 #   Задача 42: Узнать какая максимальная households в зоне минимального значения population.
 #
-#  ссылка на collab:
+#  ссылка на collab (на эту задачу):
+#  https://colab.research.google.com/drive/1cy4B-3peyRjmzBCYh__1AcTPNx8_r78N?usp=sharing#scrollTo=SgT-W4WFWgji
+#
+#   или общая на раздел:
 #  https://colab.research.google.com/drive/1cy4B-3peyRjmzBCYh__1AcTPNx8_r78N?usp=sharing
 #
 import pandas as pd
