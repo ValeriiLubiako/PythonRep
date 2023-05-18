@@ -60,16 +60,16 @@ print (one_hot_data)   #   смотрим результат
 # 7	    False	True
 # 8	    True	False
 # 9	    False	True
-# 10	True	False
-# 11	True	False
-# 12	False	True
-# 13	True	False
-# 14	False	True
-# 15	False	True
-# 16	True	False
-# 17	False	True
-# 18	True	False
-# 19	True	False
+# 10	  True	False
+# 11	  True	False
+# 12	  False	True
+# 13	  True	False
+# 14	  False	True
+# 15	  False	True
+# 16	  True	False
+# 17	  False	True
+# 18	  True	False
+# 19	  True	False
 
 #  преобразуем значения к типу integer и смотри результат - True и False заменились на 1 и 0
 
@@ -87,16 +87,16 @@ print(one_hot_data)
 # 7	    0	    1
 # 8	    1	    0
 # 9	    0	    1
-# 10	1	    0
-# 11	1	    0
-# 12	0	    1
-# 13	1	    0
-# 14	0	    1
-# 15	0	    1
-# 16	1	    0
-# 17	0	    1
-# 18	1	    0
-# 19	1	    0
+# 10	  1	    0
+# 11	  1	    0
+# 12	  0	    1
+# 13	  1	    0
+# 14	  0	    1
+# 15  	0	    1
+# 16  	1	    0
+# 17	  0	    1
+# 18  	1	    0
+# 19  	1	    0
 
 #  можем записать более компактно, обьединить построение фрейма с изменением типа значений его элементов на int
 for val in unique_vals:    #  в цикле заполняем значения столбцов one-hot DataFrame и меняем тип значений на int
@@ -114,13 +114,13 @@ print(one_hot_data)
 # 7	    0	    1
 # 8	    1	    0
 # 9	    0	    1
-# 10	1	    0
-# 11	1	    0
-# 12	0	    1
-# 13	1	    0
-# 14	0	    1
-# 15	0	    1
-# 16	1	    0
-# 17	0	    1
-# 18	1	    0
-# 19	1	    0
+# 10	  1	    0
+# 11	  1	    0
+# 12	  0	    1
+# 13	  1	    0
+# 14	  0	    1
+# 15	  0	    1
+# 16	  1	    0
+# 17	  0	    1
+# 18	  1	    0
+# 19	  1	    0
